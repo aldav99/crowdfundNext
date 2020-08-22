@@ -1,0 +1,17 @@
+{
+    "plugins": [
+        [
+            "inline-import-data-uri",
+            {
+                "extensions": [
+                    ".html",
+                    ".jpg",
+                    ".png"
+                ]
+            }
+        ],
+        [
+            "@babel/plugin-transform-react-jsx"
+        ]
+    ]
+}
