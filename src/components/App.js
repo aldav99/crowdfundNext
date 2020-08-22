@@ -6,11 +6,7 @@ import { UserInfo } from './UserInfo';
 import { BookTable } from './BookTable';
 import withLoading from './HOC/withLoading';
 
-
 const BookTableEnhanced = withLoading(BookTable);
-
-
-
 
 const styles = {
     header: {
