@@ -5,6 +5,8 @@ import { SubscribeModal } from './SubscribeModal';
 
 import { percentOfProgress } from './percentOfProgress';
 
+import Link from 'next/link'
+
 const styles = {
     letter: {
         color: 'red'
@@ -37,7 +39,11 @@ export const BookRows = React.memo(({ books, removeFromTable, authors }) => {
                 {
                     books.slice(0, 3).map(book => {
                         return (<tr key={book.id}>
-                            <td>{book.title}</td>
+                            <td>
+                                <Link href="/Books/[id]" as={`/Books/${book.id}`}>
+                                    <a>{book.title}</a>
+                                </Link>
+                            </td>
                             <td><button onClick={() =>
                                 removeFromTable(book.id)} style={styles.letter}>*</button></td>
                             <td>{book.brief}</td>

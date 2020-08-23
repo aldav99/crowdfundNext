@@ -25,7 +25,7 @@ import { fetchData, fetchAuthors } from '../src/utils/airtableData'
 
 export default function Home({ books, authors }) {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Crowdfund App</title>
         <link rel="icon" href="/favicon.ico" />
