@@ -1,15 +1,13 @@
 import React from 'react';
 
-import { AuthorTable } from './AuthorTable';
-import { SubscribeModal } from './SubscribeModal';
 
 import { TheadBooks } from './Table';
 
-import { percentOfProgress } from './percentOfProgress';
 
 import Link from 'next/link'
+import { TrOfTable } from './TrOfTable';
 
-const styles = {
+export const styles = {
     letter: {
         color: 'red'
     }
@@ -29,31 +27,7 @@ export const BookRows = React.memo(({ books, removeFromTable, authors }) => {
                                     <a>{book.title}</a>
                                 </Link>
                             </td>
-                            <td><button onClick={() =>
-                                removeFromTable(book.id)} style={styles.letter}>*</button></td>
-                            <td>{book.brief}</td>
-                            <td>{book.page}</td>
-                            <td>{book.lang}</td>
-                            <td>{percentOfProgress(book.fundedSum, book.neededSum)}</td>
-                            <td><img src={book.cover} width="40"
-                                height="40"></img></td>
-                            <td><AuthorTable
-                                authors={authors.filter(author => book.authors.includes(author.id))} />
-                            </td>
-
-                            <td>{book.minCost}</td>
-                            <td><Royalty minCost={book.minCost} /></td>
-                            <td>{book.neededCost}</td>
-                            <td>{book.fundedSum}</td>
-                            <td>{book.neededSum}</td>
-
-
-                            {
-                                (book.subscriber > 10) ? <td style={styles.letter}>{book.subscriber}</td>
-                                    : <td>{book.subscriber}</td>
-                            }
-
-                            <td><SubscribeModal /></td>
+                            <TrOfTable removeFromTable={removeFromTable} book={book} authors={authors} key={book.id} />
                         </tr>)
                     })
                 }
@@ -101,4 +75,5 @@ export class Royalty extends React.PureComponent {
         )
     }
 }
+
 
