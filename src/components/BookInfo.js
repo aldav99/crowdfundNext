@@ -4,7 +4,9 @@ import { AuthorTable } from './AuthorTable';
 
 import { percentOfProgress } from './percentOfProgress';
 
-import { TheadBooks } from './Table';
+import TheadBooks from './TheadBooks';
+
+import { TrOfTable } from './TrOfTable';
 
 const styles = {
     letter: {
@@ -19,26 +21,7 @@ export const BookInfo = React.memo(({ book, authors }) => {
             <tbody>
                 <tr key={book.id}>
                     <td>{book.title}</td>
-                    <td>{book.brief}</td>
-                    <td>{book.page}</td>
-                    <td>{book.lang}</td>
-                    <td>{percentOfProgress(book.fundedSum, book.neededSum)}</td>
-                    <td><img src={book.cover} width="40"
-                        height="40"></img></td>
-                    <td><AuthorTable
-                        authors={authors.filter(author => book.authors.includes(author.id))} />
-                    </td>
-
-                    <td>{book.minCost}</td>
-                    <td>{book.neededCost}</td>
-                    <td>{book.fundedSum}</td>
-                    <td>{book.neededSum}</td>
-
-
-                    {
-                        (book.subscriber > 10) ? <td style={styles.letter}>{book.subscriber}</td>
-                            : <td>{book.subscriber}</td>
-                    }
+                    <TrOfTable book={book} authors={authors} key={book.id} />
                 </tr>)
             </tbody>
         </table>)

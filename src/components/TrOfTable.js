@@ -2,11 +2,20 @@ import React from 'react';
 import { AuthorTable } from './AuthorTable';
 import { SubscribeModal } from './SubscribeModal';
 import { percentOfProgress } from './percentOfProgress';
-import { styles, Royalty } from './BookRows';
+import { Royalty } from './BookRows';
+
+const styles = {
+    letter: {
+        color: 'red'
+    }
+}
+
 export const TrOfTable = ({ book, authors, removeFromTable }) => {
     return (
         <React.Fragment>
-            {(removeFromTable) ? <td><button onClick={() => removeFromTable(book.id)} className={styles.letter}>*</button></td> : <td>Unaccessible</td>}
+            {
+                (removeFromTable) ? <td><button onClick={() => removeFromTable(book.id)} style={styles.letter}>*</button></td> : <td>Unaccessible</td>
+            }
             <td>{book.brief}</td>
             <td>{book.page}</td>
             <td>{book.lang}</td>

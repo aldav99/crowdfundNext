@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-import { TheadBooks } from './Table';
+import TheadBooks from './TheadBooks';
 
 
 import Link from 'next/link'
