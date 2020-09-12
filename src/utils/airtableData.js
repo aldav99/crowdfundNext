@@ -21,7 +21,7 @@ export const fetchBook = (id) => (
 export const fetchData = () => (
     httpClient.get('/Books', {
         params: {
-            maxRecords: 3,
+            maxRecords: 5,
             view: 'Grid view'
         }
     }).then(result => result.data)
@@ -36,7 +36,7 @@ function _mapFromAirtable(data) {
 export const fetchAuthors = () => (
     httpClient.get('/Authors', {
         params: {
-            maxRecords: 4,
+            maxRecords: 5,
             view: 'Grid view'
         }
     }).then(result => result.data)
